@@ -31,4 +31,11 @@ public class CommonUtils {
 		return df.format(new Date()).toString();
 	}
 	
+	public static AIInterface getAIInterface(){
+		AIInterface ai = null;
+		if(ai == null){
+			ai= new AIInterface();
+		}
+		return ai;
+	}
 }
