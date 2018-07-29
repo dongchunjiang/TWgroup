@@ -1,0 +1,23 @@
+web.xml
+引入█spring.xml和█spring-mybatis.xml（<context-param>）
+引入█spring-mvc.xml（<servlet>）
+
+	spring.xml
+	█引入config.properties（<context:property-placeholder>）
+	自动扫描(注入)service层实现类（<context:component-scan>）
+	
+		config.properties
+		数据库连接参数配置
+
+	spring-mybatis.xml
+	数据源配置（<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource">）
+	数据源引用配置（<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">）
+	引入访问数据库的mapper.xml（property name="mapperLocations"...>）
+	接口（/sql映射文件）所在包自动扫描配置（<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">）
+	事务管理配置（<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">）
+	其他...
+	
+	spring-mvc.xml
+	控制器所在包自动扫描配置
+	视图模式配置
+

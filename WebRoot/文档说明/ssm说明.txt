@@ -1,0 +1,23 @@
+项目运行状态：可运行
+地址
+http://localhost:8080/ssm/
+数据库 
+mysql 默认端口号：3306
+jdbc_url=jdbc:mysql://localhost:3306/db_system?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+root/mysql0010
+db_system
+表
+sys_user
+	uuid			varchar	50 key
+	login_name		varchar	50
+	login_password	varchar	50
+	nick_name		varchar	50
+	status			int		1
+	add_time		varchar	50
+	remark			varchar	50
+表数据
+uuid login_name login_password nick_name status add_time remark
+编号	   用户名		 密码	     昵称	        状态		   备注	添加时间	   操作
+e0b3966b2fd844ed9c41082c8cb10e57 111 111 111 0 2017-09-30 15:30:03 111
+
+注：修改后编译运行前要清空编译记录

@@ -1,0 +1,20 @@
+/**
+ * 登录页面css
+ */
+
+.login_body {
+	text-align: center;
+}
+.login_div {
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -200px;
+	border: 1px solid blue;
+}
+/**
+ * 登录页面css结束
+ */
