@@ -41,6 +41,11 @@
     <servlet-name>springMvc</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>springMvc</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>

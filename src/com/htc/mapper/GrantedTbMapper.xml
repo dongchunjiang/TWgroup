@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htc.dao.GrantedTbMapper">
+  <resultMap id="BaseResultMap" type="com.htc.model.GrantedTb">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="o_user_id" jdbcType="VARCHAR" property="oUserId" />
+    <result column="a_user_id" jdbcType="VARCHAR" property="aUserId" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, o_user_id, a_user_id, note
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from granted_tb
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from granted_tb
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.htc.model.GrantedTb">
+    insert into granted_tb (id, o_user_id, a_user_id, 
+      note)
+    values (#{id,jdbcType=INTEGER}, #{oUserId,jdbcType=VARCHAR}, #{aUserId,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.htc.model.GrantedTb">
+    insert into granted_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="oUserId != null">
+        o_user_id,
+      </if>
+      <if test="aUserId != null">
+        a_user_id,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="oUserId != null">
+        #{oUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="aUserId != null">
+        #{aUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.htc.model.GrantedTb">
+    update granted_tb
+    <set>
+      <if test="oUserId != null">
+        o_user_id = #{oUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="aUserId != null">
+        a_user_id = #{aUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.htc.model.GrantedTb">
+    update granted_tb
+    set o_user_id = #{oUserId,jdbcType=VARCHAR},
+      a_user_id = #{aUserId,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

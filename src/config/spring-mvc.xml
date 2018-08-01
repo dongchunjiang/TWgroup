@@ -14,16 +14,23 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<mvc:annotation-driven/><!-- 开启注释 -->
 	
-
-    <!-- HandlerMapping
-    <bean  
-        class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />  
- -->  
-    <!-- HandlerAdapter
-    <bean  
-        class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" /> 
- -->  
-
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	  <property name="messageConverters">
+	   <list >
+	    <ref bean="mappingJacksonHttpMessageConverter" />
+	   </list>
+	  </property>
+	</bean>
+	<bean id="mappingJacksonHttpMessageConverter"
+	  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	  <property name="supportedMediaTypes">
+	   <list>
+	    <value>text/html;charset=UTF-8</value>
+	   </list>
+	  </property>
+	</bean> 
+    
+	
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"

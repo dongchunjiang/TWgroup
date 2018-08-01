@@ -2,7 +2,7 @@
     <wb-module deploy-name="ssm_runok">
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="/ssm"/>
         <property name="java-output-path" value="/ssm_runok/WebRoot/WEB-INF/classes"/>
+        <property name="context-root" value="/twg"/>
     </wb-module>
 </project-modules>
