@@ -7,9 +7,10 @@
     <result column="a_user_id" jdbcType="VARCHAR" property="aUserId" />
     <result column="transfer_flag" jdbcType="VARCHAR" property="transferFlag" />
     <result column="transfer_date" jdbcType="TIMESTAMP" property="transferDate" />
+    <result column="balance" jdbcType="DOUBLE" property="balance" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, o_user_id, a_user_id, transfer_flag, transfer_date
+    id, o_user_id, a_user_id, transfer_flag, transfer_date, balance
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -17,15 +18,38 @@
     from transfer_tb
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByOUserId" resultMap="BaseResultMap">
+  	select 
+  	t.id, t.o_user_id, t.a_user_id, t.transfer_flag, t.transfer_date, t.balance
+  	from transfer_tb t, account a
+    where 
+    a.user_id = #{0} 
+    and  
+    a.account_id = t.o_user_id 
+    and 
+    t.transfer_flag = #{1}
+  </select>
+  <select id="selectByAUserId" resultMap="BaseResultMap">
+  	select 
+  	t.id, t.o_user_id, t.a_user_id, t.transfer_flag, t.transfer_date, t.balance
+  	from transfer_tb t, account a
+    where 
+    a.user_id = #{0} 
+    and  
+    a.account_id = t.a_user_id 
+    and 
+    t.transfer_flag = #{1}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from transfer_tb
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.htc.model.TransferTb">
     insert into transfer_tb (id, o_user_id, a_user_id, 
-      transfer_flag, transfer_date)
+      transfer_flag, transfer_date, balance)
     values (#{id,jdbcType=INTEGER}, #{oUserId,jdbcType=VARCHAR}, #{aUserId,jdbcType=VARCHAR}, 
-      #{transferFlag,jdbcType=VARCHAR}, #{transferDate,jdbcType=TIMESTAMP})
+      #{transferFlag,jdbcType=VARCHAR}, #{transferDate,jdbcType=TIMESTAMP}, 
+      #{balance,jdbcType="DOUBLE"})
   </insert>
   <insert id="insertSelective" parameterType="com.htc.model.TransferTb">
     insert into transfer_tb
@@ -45,6 +69,9 @@
       <if test="transferDate != null">
         transfer_date,
       </if>
+      <if test="balance != null">
+      	balance,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -61,6 +88,9 @@
       </if>
       <if test="transferDate != null">
         #{transferDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balance != null">
+      	#{balance,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
@@ -79,6 +109,9 @@
       <if test="transferDate != null">
         transfer_date = #{transferDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="balance != null">
+      	balance = #{balance,jdbcType=DOUBLE}
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -87,7 +120,8 @@
     set o_user_id = #{oUserId,jdbcType=VARCHAR},
       a_user_id = #{aUserId,jdbcType=VARCHAR},
       transfer_flag = #{transferFlag,jdbcType=VARCHAR},
-      transfer_date = #{transferDate,jdbcType=TIMESTAMP}
+      transfer_date = #{transferDate,jdbcType=TIMESTAMP},
+      balance = #{balance,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

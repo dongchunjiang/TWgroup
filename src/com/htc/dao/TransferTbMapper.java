@@ -1,5 +1,7 @@
 package com.htc.dao;
 
+import java.util.List;
+
 import com.htc.model.TransferTb;
 
 public interface TransferTbMapper {
@@ -14,4 +16,7 @@ public interface TransferTbMapper {
     int updateByPrimaryKeySelective(TransferTb record);
 
     int updateByPrimaryKey(TransferTb record);
+    
+    List<TransferTb> selectByOUserId(String oUserId, String transferFlag);
+    List<TransferTb> selectByAUserId(String aUserId, String transferFlag);
 }

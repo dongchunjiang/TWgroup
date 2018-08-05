@@ -13,6 +13,8 @@ public class TransferTb {
 
     private Date transferDate;
 
+    private Double balance;
+    
     public Integer getId() {
         return id;
     }
@@ -52,4 +54,12 @@ public class TransferTb {
     public void setTransferDate(Date transferDate) {
         this.transferDate = transferDate;
     }
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
 }

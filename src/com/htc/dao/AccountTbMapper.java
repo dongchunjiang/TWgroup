@@ -1,5 +1,7 @@
 package com.htc.dao;
 
+import java.util.List;
+
 import com.htc.model.AccountTb;
 
 public interface AccountTbMapper {
@@ -10,6 +12,12 @@ public interface AccountTbMapper {
     int insertSelective(AccountTb record);
 
     AccountTb selectByPrimaryKey(Integer id);
+    
+    List<AccountTb> selectByUserId(String userId);
+    
+    List<AccountTb> getAll();
+    
+    AccountTb selectByAccountId(String accountId);
 
     int updateByPrimaryKeySelective(AccountTb record);
 

@@ -21,6 +21,14 @@
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where id = #{id,jdbcType=INTEGER}
@@ -138,8 +146,15 @@
       pay_pwd = #{payPwd,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getAll" resultMap="BaseResultMap" parameterType="com.htc.model.UserTb">
+		SELECT 
+		<include refid="Base_Column_List" /> 
+		from user 
+  </select>
   <select id="login" resultMap="BaseResultMap" parameterType="com.htc.model.UserTb">
-		SELECT * from user 
+		SELECT 
+		<include refid="Base_Column_List" /> 
+		from user 
 		<where>
 			1=1
 			<if test="userId != null and userId != ''">
