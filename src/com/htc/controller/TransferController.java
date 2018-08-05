@@ -42,6 +42,7 @@ public class TransferController extends BaseController{
 	public String update(@PathVariable("id") Integer id,
 			@PathVariable("transferFlag") String transferFlag){
 		TransferTb transfer = transferService.findById(id);
+		
 		transfer.setTransferFlag(transferFlag);
 		return transferService.update(transfer);
 	}

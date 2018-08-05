@@ -15,6 +15,7 @@ public class BaseController {
 	protected GrantedService grantedService;
 	protected TransferService transferService;
 	protected UserService userService;
+
 	public UserTb getLoginUser(HttpSession session){
 		if(session.getAttribute("user") != null){
 			return (UserTb)session.getAttribute("user");
