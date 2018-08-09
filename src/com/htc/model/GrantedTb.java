@@ -1,5 +1,7 @@
 package com.htc.model;
-
+/*
+ * 授权实体层
+ */
 public class GrantedTb {
     private Integer id;
 

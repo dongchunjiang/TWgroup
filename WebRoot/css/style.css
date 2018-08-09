@@ -1,20 +1,149 @@
-/**
- * 登录页面css
- */
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  height: 552px;
+}
+header{
+	height:60px;
+  background: #fff;
+}
+header img{
+	float:left;
+	margin-top:5px;
+}
+header h2{
+	float:left;
+	margin-top:10px;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #82e4c9;
+}
+.main-section {
+  height: 100%;
+  width: 100%;
+  background: #ffffff url(../img/login-bg.png) repeat;
+}
 
-.login_body {
-	text-align: center;
+.login-form, .register-form{
+  padding: 30px;
+  margin-top: 4em;
+  -webkit-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
-.login_div {
-	position: absolute;
-	width: 600px;
-	height: 300px;
-	left: 50%;
-	top: 50%;
-	margin-left: -300px;
-	margin-top: -200px;
-	border: 1px solid blue;
+
+@media screen and (max-width: 768px) {
+  .login-form {
+    padding: 15px;
+  }
 }
-/**
- * 登录页面css结束
- */
+.unlogin-nav {
+	text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 20px;
+    margin: 0 0 30px 0;
+    color: #000000;
+    border-bottom: 3px solid #47d1d1;
+    padding-bottom: 7px;
+    width: auto;
+    display: inline-block;
+}
+.login-form .form-control {
+  font-size: 16px;
+  font-weight: 300;
+  height: 50px;
+  padding: 0 0 0 28px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.login-form .form-control::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+.login-form .form-control::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+.login-form .form-control:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+.login-form .username{
+	background:url('../img/login-pers.png') left center no-repeat;
+}
+.login-form .password{
+	background:url('../img/login-pass.png') left center no-repeat;
+}
+.login-form  .form-group {
+  margin-bottom: 30px;
+}
+.login-form  .form-group p {
+  font-size: 14px;
+  color: #9f9f9f;
+  font-weight: 300;
+}
+.login-form  .form-group p a {
+  color: #000000;
+}
+.login-form  label {
+  font-weight: 300;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.copyrights{
+	text-indent:-9999px;
+	height:0;
+	line-height:0;
+	font-size:0;
+	overflow:hidden;
+}
+.login-form .form-control:-moz-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+.login-form .form-control:focus, .login-form .form-control:active {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary {
+  font-size: 15px;
+  height: 50px;
+  padding: 5px 20px;
+  border: none;
+  background: #33cccc;
+  color: #ffffff;
+  -webkit-box-shadow: -2px 10px 20px -1px rgba(51, 204, 204, 0.4);
+  -moz-box-shadow: -2px 10px 20px -1px rgba(51, 204, 204, 0.4);
+  -o-box-shadow: -2px 10px 20px -1px rgba(51, 204, 204, 0.4);
+  box-shadow: -2px 10px 20px -1px rgba(51, 204, 204, 0.4);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  color: #ffffff;
+  background: #47d1d1 !important;
+  outline: none;
+}
+

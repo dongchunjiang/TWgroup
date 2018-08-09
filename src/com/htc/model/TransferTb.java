@@ -1,5 +1,8 @@
 package com.htc.model;
 
+/*
+ * 转账实体层
+ */
 import java.util.Date;
 
 public class TransferTb {

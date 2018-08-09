@@ -1,5 +1,8 @@
 package com.htc.model;
 
+/*
+ * 用户实体层
+ */
 public class UserTb {
     private Integer id;
 

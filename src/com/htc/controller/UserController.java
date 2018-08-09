@@ -13,7 +13,7 @@ import com.htc.model.UserTb;
 
 @Controller
 @RequestMapping("/user")
-public class UserContriller extends BaseController{
+public class UserController extends BaseController{
 	
 	@RequestMapping("/login/{userId}/{loginPwd}")
 	@ResponseBody

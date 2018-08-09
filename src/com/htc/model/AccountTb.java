@@ -1,5 +1,7 @@
 package com.htc.model;
-
+/*
+ * 支付实体层
+ */
 public class AccountTb {
     private Integer id;
 
